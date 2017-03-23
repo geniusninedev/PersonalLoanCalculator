@@ -291,6 +291,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                     /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new IdealWeightFragment()).commit();*/
                     Intent intent=new Intent(MainActivityDrawer.this,MainActivityDrawer.class);
+                    finish();
                     startActivity(intent);
                 }
 
@@ -324,7 +325,6 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
 
 
                 }
-
 
                 if (menuItem.getItemId() == R.id.RateUs) {
                     final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
@@ -706,6 +706,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
 
                 break;
         }
+
     }
 
     @Override
@@ -762,9 +763,9 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.buttonPersonalLoanEmail:
-                String message="Loan Amount:"+loanAmount+"\n Interest Rate:"+interestRate+"\n Loan Period:"+totalcalmonth+"\n Insurance:"+insurance+"\n Start Month:"+startmonth+"\n Start Year:"+startyear+
-                        "\n Origination Amount:"+originationamount+ "\n Monthly Payment:"+monthlyPayment+"\n Total Interest Amount:"+totalInterest+"\n Total Insurance Amount:"+totalInsurance+"\n Total Origination Amount:"+totalFee+
-                        "\n Total Interest+Insurance :"+totalAll+"\n Total Payment:"+TotalPayment+"Annual Payment:"+AnnualPayment+ "\n Actually Received Amount:"+actuallyReceived+"\n Pay off Month :"+payoffmonth +"\n Pay off Year :"+payoffyear;
+                String message="Loan Amount:"+new DecimalFormat("##.##").format(loanAmount)+"\n Interest Rate:"+new DecimalFormat("##.##").format(interestRate)+"\n Loan Period:"+new DecimalFormat("##.##").format(totalcalmonth)+"\n Insurance:"+new DecimalFormat("##.##").format(insurance)+"\n Start Month:"+new DecimalFormat("##.##").format(startmonth)+"\n Start Year:"+new DecimalFormat("##.##").format(startyear)+
+                        "\n Origination Amount:"+new DecimalFormat("##.##").format(originationamount)+ "\n Monthly Payment:"+new DecimalFormat("##.##").format(monthlyPayment)+"\n Total Interest Amount:"+new DecimalFormat("##.##").format(totalInterest)+"\n Total Insurance Amount:"+new DecimalFormat("##.##").format(totalInsurance)+"\n Total Origination Amount:"+new DecimalFormat("##.##").format(totalFee)+
+                        "\n Total Interest+Insurance :"+new DecimalFormat("##.##").format(totalAll)+"\n Total Payment:"+new DecimalFormat("##.##").format(TotalPayment)+"Annual Payment:"+new DecimalFormat("##.##").format(AnnualPayment)+ "\n Actually Received Amount:"+new DecimalFormat("##.##").format(actuallyReceived)+"\n Pay off Month :"+payoffmonth +"\n Pay off Year :"+payoffyear;
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{ });
                 email.putExtra(Intent.EXTRA_SUBJECT, "Loan Details");
@@ -773,13 +774,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                 startActivity(Intent.createChooser(email, "Select Email Client"));
                 break;
 
-
-
-
         }
-
-
-
 
     }
 
