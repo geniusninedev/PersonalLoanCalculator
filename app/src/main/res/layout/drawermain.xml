@@ -48,6 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/textViewwarning"
+                            android:textSize="17dp"
                             android:textColor="@android:color/holo_red_light"
                             android:textStyle="bold"/>
                     </LinearLayout>
@@ -149,7 +150,7 @@
                             android:id="@+id/editTextInsurance"
                             android:layout_weight="1" />
                         <TextView
-                            android:text=" Months"
+                            android:text=" /Months"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/textViewInterestmnth1"
@@ -277,6 +278,7 @@
                             android:inputType="number"
                             android:ems="10"
                             android:hint="Year"
+                            android:maxLength="5"
                             android:digits="0123456789."
                             android:background="@android:drawable/editbox_background"
                             android:id="@+id/editTextstartyear" />
@@ -409,6 +411,7 @@
                             android:background="@android:drawable/editbox_background"
                             android:digits="0123456789."
                             android:ems="10"
+                            android:maxLength="5"
                             android:inputType="number"
                             android:text="0" />
 
@@ -816,16 +819,17 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="5dp">
                             <Button
-                                android:id="@+id/buttonPersonalLoanEmail"
+                                android:id="@+id/buttonPersonalLoanEmailSend"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:backgroundTint="@color/btn_color"
                                 android:textStyle="bold"
-                                android:text="Email"
+                                android:text="EMAIL"
                                 android:background="@android:drawable/editbox_background_normal"
                                 android:textColor="@color/cardview_light_background"
                                 android:textSize="14dp" />
+
                             <Button
                                 android:id="@+id/buttonReport"
                                 android:layout_width="match_parent"
@@ -852,7 +856,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
 
 
             </ScrollView>

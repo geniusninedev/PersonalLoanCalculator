@@ -168,7 +168,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
         buttonReset=(Button)findViewById(R.id.buttonReset);
         buttonAmotization=(Button)findViewById(R.id.buttonAmortization);
         buttonReport=(Button)findViewById(R.id.buttonReport);
-        buttonEmail=(Button)findViewById(R.id.buttonPersonalLoanEmail);
+        buttonEmail=(Button)findViewById(R.id.buttonPersonalLoanEmailSend);
 
 
         //adding value to spinner
@@ -288,9 +288,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                 mDrawerLayout.closeDrawers();
 
                 if (menuItem.getItemId() == R.id.PersonalLoanCalcualtor) {
-                    /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new IdealWeightFragment()).commit();*/
-                    Intent intent=new Intent(MainActivityDrawer.this,MainActivityDrawer.class);
+                   Intent intent=new Intent(MainActivityDrawer.this,MainActivityDrawer.class);
                     finish();
                     startActivity(intent);
                 }
@@ -333,8 +331,6 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                     } catch (android.content.ActivityNotFoundException anfe) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                     }
-
-
 
                 }
 
@@ -762,7 +758,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
                 startActivity(i2);
                 break;
 
-            case R.id.buttonPersonalLoanEmail:
+            case R.id.buttonPersonalLoanEmailSend:
 
                 String message="Loan Amount:"+new DecimalFormat("##.##").format(loanAmount)+"\n Interest Rate:"+new DecimalFormat("##.##").format(interestRate)+"\n Loan Period:"+new DecimalFormat("##.##").format(totalcalmonth)+"\n Insurance:"+new DecimalFormat("##.##").format(insurance)+"\n Start Month:"+startmonth+"\n Start Year:"+new DecimalFormat("##.##").format(startyear)+ "\n Origination Amount:"+new DecimalFormat("##.##").format(originationamount)+"\n Monthly Payment:"+new DecimalFormat("##.##").format(monthlyPayment)+"\n Total Interest Amount:"+new DecimalFormat("##.##").format(totalInterest)+"\n Total Insurance Amount:"+new DecimalFormat("##.##").format(totalInsurance)+"\n Total Origination Amount:"+new DecimalFormat("##.##").format(totalFee)+
                         "\n Total Interest+Insurance :"+new DecimalFormat("##.##").format(totalAll)+"\n Total Payment:"+new DecimalFormat("##.##").format(TotalPayment)+"\nAnnual Payment:"+new DecimalFormat("##.##").format(AnnualPayment)+ "\n Actually Received Amount:"+new DecimalFormat("##.##").format(actuallyReceived)+"\n Pay off Month :"+(payoffmonth) +"\n Pay off Year :"+(payoffyear);
