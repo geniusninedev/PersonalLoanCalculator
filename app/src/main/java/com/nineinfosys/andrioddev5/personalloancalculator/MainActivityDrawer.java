@@ -41,6 +41,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,8 +51,8 @@ import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.nineinfosys.andrioddev5.personalloancalculator.Amortization.LoanAmortization;
-import com.nineinfosys.andrioddev5.personalloancalculator.Login.Contacts;
-import com.nineinfosys.andrioddev5.personalloancalculator.Login.LoginActivity;
+import com.nineinfosys.andrioddev5.personalloancalculator.Contacts.Contacts;
+import com.nineinfosys.andrioddev5.personalloancalculator.LoginActivity.Login;
 import com.nineinfosys.andrioddev5.personalloancalculator.PersonalLoanCalcualtor.personalloan;
 import com.nineinfosys.andrioddev5.personalloancalculator.Report.PersonalLoanReport;
 import com.squareup.okhttp.OkHttpClient;
@@ -113,6 +116,10 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
         /**
          *Setup the DrawerLayout and NavigationView
          */
+        MobileAds.initialize(MainActivityDrawer.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) this.findViewById(R.id.adViewPersonalCalculator);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.shitstuff);
@@ -461,7 +468,7 @@ public class MainActivityDrawer extends AppCompatActivity implements View.OnClic
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null){
                     Log.e("ForumMainActivity:", "User was null so directed to Login activity");
-                    Intent loginIntent = new Intent(MainActivityDrawer.this, LoginActivity.class);
+                    Intent loginIntent = new Intent(MainActivityDrawer.this, Login.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(loginIntent);
                     finish();
