@@ -59,8 +59,7 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-      //  getSupportActionBar().setHomeButtonEnabled(true);
+
         getSupportActionBar().setTitle("Loan Report");
 
         //initialization of designing tools
@@ -117,8 +116,7 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
         mChart.setRotationEnabled(true);
         mChart.setHighlightPerTapEnabled(true);
 
-        // mChart.setUnit(" €");
-        // mChart.setDrawUnitsInChart(true);
+
 
         // add a selection listener
         mChart.setOnChartValueSelectedListener(this);
@@ -127,7 +125,7 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
 
 
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-        // mChart.spin(2000, 0, 360);
+
 
         Legend l = mChart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
@@ -142,7 +140,7 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
         mChart.setEntryLabelColor(Color.BLACK);
         mChart.setEntryLabelTypeface(mTfRegular);
         mChart.setEntryLabelTextSize(12f);
-     //   mChart.setDrawSliceText(false);
+
     }
 
 
@@ -270,7 +268,7 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
         entries.add(new PieEntry((float) ToatalInterest, "Interest-" + (new DecimalFormat("##.##").format(ToatalInterest))));
         entries.add(new PieEntry((float) PrincipalAmount, "Principal-" + (new DecimalFormat("##.##").format(PrincipalAmount))));
         entries.add(new PieEntry((float) originationfee, "Fees-" + (new DecimalFormat("##.##").format(originationfee))));
-       // entries.add(new PieEntry((float) TotalPayment, "Principal-" + (new DecimalFormat("##.##").format(TotalPayment))));
+
 
 
         PieDataSet dataSet = new PieDataSet(entries, "");
@@ -317,15 +315,11 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
         String strFee=new DecimalFormat("##.##").format(originationfee);
         String strprincipal=new DecimalFormat("##.##").format(PrincipalAmount);
         String str=(new DecimalFormat("##.##").format(TotalPayment));
-        SpannableString s = new SpannableString("Total Payment\n"+"(Principal)"+strprincipal+"+"+"(Interest)"+strInterest+"+"+"(Fees)"+strFee+"="+str);
+        SpannableString s = new SpannableString("Total Payment\n"+"(Principal)"+strprincipal+"+"+"(Interest)"+strInterest+"="+str);
 
-    //    SpannableString s = new SpannableString("Total Payment\n" + str);
+
         s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-      //  s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 14, 0);
-        //s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-        //s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-        // s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
-        //s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
+
         return s;
     }
 
@@ -343,9 +337,9 @@ public class PersonalLoanReport extends AppCompatActivity implements OnChartValu
 
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-           // Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-           // Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+
         }
     }
 
