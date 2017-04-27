@@ -4,14 +4,7 @@
 
 
 
-    <group android:id="@+id/grp4" android:checkableBehavior="single" >
 
-        <item
-            android:id="@+id/PersonalLoanCalcualtor"
-            android:icon="@drawable/ic_personalloan"
-            android:title="Personal Loan Calculator" />
-
-    </group>
 
     <item
            android:id="@+id/Communicate"
